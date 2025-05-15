@@ -1,0 +1,14 @@
+# 凭证和敏感信息
+credentials/*.json
+.env
+*.pyc
+__pycache__/
+
+# 虚拟环境
+venv/
+env/
+.venv/
+
+# 其他
+.DS_Store
+.streamlit/secrets.toml
