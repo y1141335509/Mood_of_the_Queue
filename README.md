@@ -1,6 +1,6 @@
 # Mood of the Queue
 
-A simple internal tool for tracking and visualizing the mood of the customer support ticket queue throughout the day.
+Simple tool to track and visualize the Emotions of customers in a queue on daily basis.
 
 ## Features
 
@@ -8,13 +8,13 @@ A simple internal tool for tracking and visualizing the mood of the customer sup
 - **Visualize Moods**: See a bar chart of mood counts for the current day
 - **Historical Data**: View mood trends over time
 
-## Setup Instructions
+## Setup Instructions (How I set it up)
 
 ### Prerequisites
 
 - Python 3.7+
 - A Google account
-- Google Cloud project with Sheets API enabled
+- Google Cloud project with Sheets API enabled (There can be API call limits)
 
 ### Step 1: Set up Google Cloud Project
 

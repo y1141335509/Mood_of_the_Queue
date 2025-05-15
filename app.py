@@ -19,11 +19,17 @@ def setup_google_sheet():
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
     
     credentials_path = './credentials/credentials.json'
+    credentials = None
     if not os.path.exists(credentials_path):
-        st.error(f"Credentials file not found at: {credentials_path}")
-        return None
+        credentials_dict = json.loads(st.secrets['GOOGLE_CREDENTIALS'])
+        if not credentials_dict:
+            st.error(f"Credentials file not found at: {credentials_path}")
+            return None
+        else:
+            credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict, scope)
+    else:
+        credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
     
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_path, scope)
     client = gspread.authorize(credentials)
     
     spreadsheet_id = "1b6qfnwGHmYmj9-Rg4KSmPhUzHGSh51RWLMOsEvCCMYE"
